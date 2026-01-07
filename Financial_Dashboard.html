@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Personal Finance Dashboard</title>
+        <link rel="Stylesheet" href="WebAppStyles.css">
+    </head>
+
+    <body>
+        <div class="app">
+            <h2>Personal Finance Dashboard</h2>
+
+            <div class="tabs">
+                <button class="tab active" onclick="show('calc',this)">Calculator</button>
+                <button class="tab" onclick="show('budget',this)">Budget</button>
+                <button class="tab" onclick="show('mortgage',this)">Mortgage</button>
+            </div>
+
+            <!-- CALCULATOR -->
+            <div id="calc" class="section active">
+                <input id="display" class="display" disabled>
+
+                <div class="buttons">
+                    <button class="calc sign" onclick="press('Math.sin(')">sin</button>
+                    <button class="calc sign" onclick="press('Math.cos(')">cos</button>
+                    <button class="calc sign" onclick="press('Math.tan(')">tan</button>
+                    <button class="calc operator" onclick="del()">DEL</button>
+                    
+                    <button class="calc operator" onclick="clearDisplay()">C</button>
+
+                    <button class="calc" onclick="press('7')">7</button>
+                    <button class="calc" onclick="press('8')">8</button>
+                    <button class="calc" onclick="press('9')">9</button>
+                    <button class="calc operator" onclick="press('/')">÷</button>
+                    <button class="calc symbol" onclick="press('Math.PI')">π</button>
+
+                    <button class="calc" onclick="press('4')">4</button>
+                    <button class="calc" onclick="press('5')">5</button>
+                    <button class="calc" onclick="press('6')">6</button>
+                    <button class="calc operator" onclick="press('*')">×</button>
+                    <button class="calc symbol" onclick="press('**')">xʸ</button>
+
+                    <button class="calc" onclick="press('1')">1</button>
+                    <button class="calc" onclick="press('2')">2</button>
+                    <button class="calc" onclick="press('3')">3</button>
+                    <button class="calc operator" onclick="press('-')">−</button>
+                    <button class="calc symbol" onclick="press('Math.sqrt(')">√</button>
+                    <button class="calc" onclick="press('0')">0</button>
+                    <button class="calc" onclick="press('.')">.</button>
+                    <button class="calc" onclick="toggleSign()">±</button>
+
+                    <button class="calc operator" onclick="press('+')">+</button>
+                    <button class="calc symbol" onclick="press('(')">(</button>
+                    <button class="calc equals" onclick="calculate()">=</button>
+                    <button class="calc symbol" onclick="press(')')">)</button>
+                    
+                </div>
+
+                <div class="results">
+                    <div class="history" id="history"></div>
+                </div>
+            </div>
+
+            <!-- BUDGET -->
+            <div id="budget" class="section">
+                <div class="grid">
+                    <label>Monthly Income</label><input id="income" type="number">
+                    <label>Mortgage/Rent</label><input id="housing" type="number">
+                    <label>Electricity</label><input id="electricity" type="number">
+                    <label>Water</label><input id="water" type="number">
+                    <label>Gas</label><input id="gas" type="number">
+                    <label>Internet</label><input id="internet" type="number">
+                    <label>Food</label><input id="food" type="number">
+                    <label>Transport</label><input id="transport" type="number">
+                    
+                    <label>Other</label>
+                    <div id="other-container"></div>
+
+                    <div></div>
+                    <button id="addBill" onclick="addOther()">＋</button>
+
+                </div>
+
+                <button class="full secondary" onclick="calcBudget()">Calculate Budget</button>
+
+                <div class="results">
+                    <div class="row"><span>Total Expenses</span><span id="expenses">$0</span></div>
+                    <div class="row bold"><span>Remaining</span><span id="remaining">$0</span></div>
+                </div>
+            </div>
+
+            <!-- MORTGAGE -->
+            <div id="mortgage" class="section">
+                <div class="grid">
+                    <label>Loan Amount</label><input id="loan" type="number">
+                    <label>Interest Rate %</label><input id="rate" type="number">
+                    <label>Years</label><input id="years" type="number">
+                    <label>Annual Taxes</label><input id="taxes" type="number">
+                    <label>Annual Insurance</label><input id="ins" type="number">
+                    <label>Monthly HOA</label><input id="hoa" type="number">
+                </div>
+
+                <button class="full" onclick="calcMortgage()">Calculate Mortgage</button>
+
+                <div class="results">
+                    <div class="row title">Mortgage Breakdown</div>
+                    <div class='row'><span>Principal & Interest</span><span id='mortPI'>$0.00</span></div>
+                    <div class='row'><span>Property Taxes</span><span id='mortTax'>$0.00</span></div>
+                    <div class='row'><span>Insurance</span><span id='mortIns'>$0.00</span></div>
+                    <div class='row'><span>HOA</span><span id='mortHOA'>$0.00</span></div>
+                    <div class="row title"><span>Total Monthly</span><span id="mortTotal">$0.00</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="WebAppScript.js"></script>
+    </body>
+</html>

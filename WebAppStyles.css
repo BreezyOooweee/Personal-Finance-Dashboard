@@ -1,0 +1,174 @@
+/*Financial Dashboard Stylesheet*/
+
+@charset "UTF-8";
+
+*:root {
+  --primary:#2563eb;
+  --secondary:#16a34a;
+  --bg:#140a44;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  padding: 40px 10px;
+}
+
+.app {
+  background: rgb(238, 238, 238);
+  width: 800px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.1);
+  padding: 25px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 40px;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  background: #777777;
+}
+
+.tab.active {
+  background: var(--primary);
+  color: white;
+  font-weight: bold;
+}
+
+.section { display:none; }
+.section.active { display:block; }
+
+.grid {
+  display:grid;
+  grid-template-columns: 1fr 2fr;
+  gap:10px;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+label {
+  font-size:18px;
+  align-self:center;
+}
+
+input {
+  padding:8px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  font-size:15px;
+}
+
+button {
+  padding:12px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:19px;
+  background:var(--primary);
+  color:rgb(4, 4, 4);
+}
+
+button.secondary {
+  background:var(--secondary);
+}
+
+button.full {
+  width:100%;
+  margin-top:15px;
+}
+
+#addBill {
+  width: 40px;
+  padding: 5px;
+}
+/* Other button css */
+.other-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr auto;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.other-row input {
+  padding: 6px;
+}
+
+.remove-btn {
+  background: #dc2626;
+  color: white;
+  padding: 6px 10px;
+}
+/* End */
+
+.results {
+  margin-top:20px;
+  border-top:1px solid #ddd;
+  padding-top:12px;
+}
+
+.row.title {
+  font-weight:bold;
+  font-size:18px;
+  margin-bottom:8px;
+}
+
+.row {
+  display:flex;
+  justify-content:space-between;
+  font-size:18px;
+  margin:6px 0;
+}
+
+.bold { font-weight:bold; font-size:18px; }
+.positive { color:var(--secondary); }
+.negative { color:#dc2626; }
+
+/* Calculator */
+.display {
+  width:96.5%;
+  padding:12px;
+  font-size:18px;
+  text-align:right;
+  margin-bottom:10px;
+  background-color: white;
+}
+
+.buttons {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+}
+
+.calc {
+  padding:12px;
+  border:none;
+  border-radius:6px;
+  background:#e5e7eb;
+}
+
+.symbol { background:#7401b6; color:white; }
+.sign { background:#fbbf24; }
+.operator { background:#93c5fd; }
+.equals { background:#0caa46; color:white; grid-column:span 4; }
+
+.history {
+  max-height:160px;
+  overflow-y:auto;
+  font-size:20px;
+  border:1px solid #ddd;
+  padding:8px;
+}
